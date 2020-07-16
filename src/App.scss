@@ -103,8 +103,9 @@ h2 {
   background-repeat:no-repeat;
   background-color:$Dark-Violet;
 }
-section.half {
+.half {
   background-color:transparent;
+  position: relative;
   &:after {
     content: '';
     width:100%;

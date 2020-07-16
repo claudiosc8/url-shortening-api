@@ -59,7 +59,7 @@ function App() {
 		  </Row>
 		</Container>
 	</section>
-	<section className="half gray-bg">
+	<div className="half gray-bg">
 		<Container>
 		  <Row>
 		  	<Col>
@@ -67,7 +67,7 @@ function App() {
 		    </Col>
 		  </Row>
 		</Container>
-	</section>
+	</div>
 	<section className="gray-bg">
 		<Container>
 			<Row className='links-wrapper'>
