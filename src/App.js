@@ -32,7 +32,7 @@ function App() {
      <React.Fragment>
       <Container>
 	     <Navbar expand="md">
-		  <Navbar.Brand href="#home"><img src={Logo} alt='logo' /></Navbar.Brand>
+		  <div className='navbar-brand'><img src={Logo} alt='logo' /></div>
 		  <Navbar.Toggle aria-controls="basic-navbar-nav" />
 		  <Navbar.Collapse id="basic-navbar-nav">
 		    <Nav className="mr-auto">
