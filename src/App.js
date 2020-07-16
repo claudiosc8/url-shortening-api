@@ -1,16 +1,33 @@
 import React, {useState} from 'react';
-import {Row, Container, Col, Button, Navbar, Nav, FormControl, Form} from 'react-bootstrap/'
+import {Row, Container, Col, Button, Navbar, Nav} from 'react-bootstrap/'
 import './App.scss';
 import Illustration from './images/illustration-working.svg'
 import Logo from './images/logo.svg'
 import IconBrandRecognition from './images/icon-brand-recognition.svg'
 import IconDetailedRecords from './images/icon-detailed-records.svg'
 import IconFullyCustomizable from './images/icon-fully-customizable.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTwitter, faFacebookSquare , faPinterest, faInstagram} from '@fortawesome/free-brands-svg-icons'
+import Item from './Item'
+import Form from './Form'
+import axios from 'axios';
 
 function App() {
+ 	
+	const [result, setResult] = useState([])
 
- 
-  return (
+	async function addLink(url) {
+
+		 try {
+		    const response = await axios.post('https://rel.ink/api/links/', {url});
+		    setResult(res => [...res, response.data])
+		 } catch (error) {
+		    console.error(error);
+		 }
+	}
+
+
+  	return (
      
      <React.Fragment>
       <Container>
@@ -23,7 +40,7 @@ function App() {
 		      <Nav.Link href="#link">Pricing</Nav.Link>
 		      <Nav.Link href="#link">Resources</Nav.Link>
 		    </Nav>
-		    <Nav>
+		    <Nav className='user-area'>
 		      <Nav.Link href="#home">Login</Nav.Link>
 		      <Nav.Link href="#link"><Button variant="primary">Sign up</Button></Nav.Link>
 		    </Nav>
@@ -38,7 +55,7 @@ function App() {
 		    	<div className='description'>Build your brand's recognition and get detailed insight on how your links are performing.</div>
 		    	<Button variant="primary">Get Started</Button>
 		    </Col>
-		    <Col md={5}><img src={Illustration} alt='Illustration Working' /></Col>
+		    <Col md={5} className='illustration'><img src={Illustration} alt='Illustration Working' /></Col>
 		  </Row>
 		</Container>
 	</section>
@@ -46,10 +63,7 @@ function App() {
 		<Container>
 		  <Row>
 		  	<Col>
-		  	<Form inline className='shorten-form'>
-		      <FormControl type="text" placeholder="Shorten a link here..." className="mr-sm-4 flex-grow-1" />
-		      <Button variant="primary" className="round">Shorten It!</Button>
-		    </Form>
+		  		<Form addLink={addLink} />
 		    </Col>
 		  </Row>
 		</Container>
@@ -58,6 +72,7 @@ function App() {
 		<Container>
 			<Row className='links-wrapper'>
 			  	<Col>
+			  		{result.map((res,i) => <Item key={i} data={res}/>)}
 			 	</Col> 
 			</Row>
 			<Row className='section-title'>
@@ -107,6 +122,46 @@ function App() {
 		  	</Row>
 	  	</Container>
   	</section>
+  	<footer>
+  		<Container>
+			<Row>
+			  	<Col md={4} className="logo">
+				  	<img src={Logo} alt='logo' />
+			 	</Col> 
+			 	<Col md={2}>
+			 		<h6>Features</h6>
+			 		  <ul className="list-unstyled">
+	  					  <li className='footer-link'>Link Shortening</li>
+	  					  <li className='footer-link'>Branded Links</li>
+	  					  <li className='footer-link'>Analytics</li>
+  					  </ul>
+			 	</Col>
+			 	<Col md={2}>
+			 		<h6>Resources</h6>
+			 		  <ul className="list-unstyled">
+	  					  <li className='footer-link'>Blog</li>
+	  					  <li className='footer-link'>Developers</li>
+	  					  <li className='footer-link'>Support</li>
+  					  </ul>
+			 	</Col>
+			 	<Col md={2}>
+			 		<h6>Company</h6>
+			 		  <ul className="list-unstyled">
+	  					  <li className='footer-link'>About</li>
+	  					  <li className='footer-link'>Our Team</li>
+	  					  <li className='footer-link'>Careers</li>
+	  					  <li className='footer-link'>Contact</li>
+  					  </ul>
+			 	</Col>
+			 	<Col  md={2} className='social'>
+			 		<FontAwesomeIcon icon={faFacebookSquare} size="1x"/>
+			 		<FontAwesomeIcon icon={faTwitter} />
+			 		<FontAwesomeIcon icon={faPinterest} />
+			 		<FontAwesomeIcon icon={faInstagram} />
+			 	</Col>
+		  	</Row>
+	  	</Container>
+  	</footer>
 
     </React.Fragment>
   );
