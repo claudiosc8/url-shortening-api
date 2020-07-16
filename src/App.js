@@ -36,13 +36,13 @@ function App() {
 		  <Navbar.Toggle aria-controls="basic-navbar-nav" />
 		  <Navbar.Collapse id="basic-navbar-nav">
 		    <Nav className="mr-auto">
-		      <Nav.Link href="#home">Features</Nav.Link>
-		      <Nav.Link href="#link">Pricing</Nav.Link>
-		      <Nav.Link href="#link">Resources</Nav.Link>
+		      <div className='nav-link'>Features</div>
+		      <div className='nav-link'>Pricing</div>
+		      <div className='nav-link'>Resources</div>
 		    </Nav>
 		    <Nav className='user-area'>
-		      <Nav.Link href="#home">Login</Nav.Link>
-		      <Nav.Link href="#link"><Button variant="primary">Sign up</Button></Nav.Link>
+		      <div className='nav-link'>Login</div>
+		      <div className='nav-link'><Button variant="primary">Sign up</Button></div>
 		    </Nav>
 		  </Navbar.Collapse>
 		</Navbar>

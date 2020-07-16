@@ -28,7 +28,7 @@ function FormShorten({addLink}) {
 	     
 	     <Form inline className='shorten-form' onSubmit={handleSubmit}>
 	    	<div className={`input-wrapper flex-grow-1 mr-md-4${error ? ' error' : ''}`}>
-	      <FormControl ref={inputRef} type="text" placeholder="Shorten a link here..." className={`mr-sm-4${error ? ' error' : ''}`} />
+	      <FormControl ref={inputRef} type="text" placeholder="Shorten a link here..." className={`mr-sm-4${error ? ' error' : ''}`} aria-label='Shorten-Links'/>
 	      {error && <div className='error-message'>Please add a link</div>}
 	      </div>
 	      <Button variant="primary" type="submit" className={`round`}>Shorten It!</Button>
