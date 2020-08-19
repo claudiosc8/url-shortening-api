@@ -2,6 +2,8 @@
 
 **Check the deployed app [here](https://url-shortening-api-hazel.vercel.app)**
 
+**Check the report on Frontend Mentor [here](https://www.frontendmentor.io/solutions/url-shortening-api-landing-page-using-react-and-bootstrap-4OX6Y7S9h)**
+
 ![Design preview for the Shortly URL shortening API coding challenge](./design/desktop-preview.jpg)
 
 ## Welcome! 👋
